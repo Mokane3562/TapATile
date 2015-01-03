@@ -1,6 +1,8 @@
 package com.matatl.fightfight.screen;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.matatl.fightfight.TextureManager;
 import com.matatl.fightfight.camera.OrthoCamera;
 
@@ -9,16 +11,22 @@ import com.matatl.fightfight.camera.OrthoCamera;
  */
 public class MenuScreen extends Screen {
     private OrthoCamera camera;
+    private Rectangle playRectangle;
 
     @Override
     public void create() {
         camera = new OrthoCamera();
+        camera.resize();
+        playRectangle = new Rectangle(171, 462, 115, 32);
         System.out.println("MenuScreen created");
     }
 
     @Override
     public void update() {
         camera.update();
+        if (playRectangle.contains(Gdx.input.getX(), Gdx.input.getY()) && Gdx.input.isTouched()) {
+            ScreenManager.setScreen(new GameScreen());
+        }
         System.out.println("MenuScreen updated");
     }
 
@@ -28,6 +36,7 @@ public class MenuScreen extends Screen {
         spriteBatch.begin();
         spriteBatch.draw(TextureManager.MENU_SCREEN,0,0);
         spriteBatch.end();
+        System.out.println("MenuScreen rendered");
     }
 
     @Override
