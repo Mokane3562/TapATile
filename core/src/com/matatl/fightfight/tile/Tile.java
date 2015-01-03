@@ -28,4 +28,7 @@ public abstract class Tile {
     public Rectangle getBounds() {
         return new Rectangle(pos.x, pos.y, texture.getWidth(), texture.getHeight());
     }
+    public boolean containsPoint(Vector2 point){
+        return getBounds().contains(point.x, point.y);
+    }
 }
