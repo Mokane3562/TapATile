@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.matatl.fightfight.screen.GameScreen;
+import com.matatl.fightfight.screen.MenuScreen;
 import com.matatl.fightfight.screen.ScreenManager;
 
 public class MainGame extends ApplicationAdapter {
@@ -14,7 +15,7 @@ public class MainGame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		spriteBatch = new SpriteBatch();
-        ScreenManager.setScreen(new GameScreen());
+        ScreenManager.setScreen(new MenuScreen());
 	}
 
 	@Override
