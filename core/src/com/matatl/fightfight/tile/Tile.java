@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 public abstract class Tile {
     protected Texture texture;
     protected Vector2 pos;
+    protected TileManager tileManager;
     public Tile(Texture texture, Vector2 pos) {
         this.texture = texture;
         this.pos = pos;
