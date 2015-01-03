@@ -10,7 +10,15 @@ import com.matatl.fightfight.camera.OrthoCamera;
 public class TileManager {
     private Array<Tile> tiles = new Array<Tile>();
     public TileManager(OrthoCamera camera) {
-        addTile(new KillTile(new Vector2(100,100),camera));
+        addTile(new PointTile(new Vector2(10,160),camera));
+        addTile(new PointTile(new Vector2(180,160),camera));
+        addTile(new PointTile(new Vector2(350,160),camera));
+        addTile(new PointTile(new Vector2(10,320),camera));
+        addTile(new PointTile(new Vector2(180,320),camera));
+        addTile(new PointTile(new Vector2(350,320),camera));
+        addTile(new PointTile(new Vector2(10,480),camera));
+        addTile(new PointTile(new Vector2(180,480),camera));
+        addTile(new PointTile(new Vector2(350,480),camera));
     }
     public void update() {
         for(Tile t : tiles) {
