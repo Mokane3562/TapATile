@@ -4,17 +4,16 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.matatl.fightfight.TextureManager;
 import com.matatl.fightfight.camera.OrthoCamera;
 import com.matatl.fightfight.screen.GameScreen;
+
+import javax.xml.soap.Text;
 
 /**
  * Created by scott on 2015-01-03.
  */
 public class PointTile extends Tile{
-    private ActivePointTile activePointTile;
-    private InactivePointTile inactivePointTile;
-    private KillTile killTile;
-    private MultTile multTile;
     private boolean active;
     private boolean special;
     private float delay, baseDelay;
@@ -23,17 +22,30 @@ public class PointTile extends Tile{
         baseDelay =60000/(GameScreen.bpm);
         baseDelay = (Math.abs(GameScreen.bpm-120) <= Math.abs(GameScreen.bpm/2 - 120)) ? baseDelay : baseDelay * 2;
         delay = baseDelay;
-        activePointTile = new ActivePointTile(pos, camera);
-        inactivePointTile = new InactivePointTile(pos, camera);
-        killTile = new KillTile(pos, camera);
-        multTile = new MultTile(pos, camera);
         active = false;
         special = false;
+        texture = TextureManager.INACTIVE_POINT_TILE;
     }
 
     @Override
     public void update() {
+        if(special) {
+            if(active) {
+                texture = TextureManager.MULT_TILE;
+            }
+            else {
+                texture = TextureManager.KILL_TILE;
+            }
+        }
+        else {
+            if(active) {
+                texture = TextureManager.POINT_TILE;
 
+            }
+            else {
+                texture = TextureManager.INACTIVE_POINT_TILE;
+            }
+        }
     }
 
     public boolean isSpecial() {
@@ -45,32 +57,20 @@ public class PointTile extends Tile{
     }
 
     public void render(SpriteBatch sb,float delta){
-
-        if(delta > baseDelay) {
+        delay -= delta;
+        if(delay >= 0) {
             special = false;
             active = false;
             delay = baseDelay;
-            inactivePointTile.render(sb);
         }
-        if(special) {
-            if(active) {
-                multTile.render(sb);
-            }
-            else {
-                killTile.render(sb);
-            }
-        }
-        else {
-            if (active) {
-                activePointTile.render(sb);
-            } else {
-                inactivePointTile.render(sb);
-
-            }
-        }
+        this.update();
+        super.render(sb);
 
     }
 
+    public boolean isActive() {
+        return active;
+    }
     public void activate(){
         delay = baseDelay;
         active = true;
@@ -79,12 +79,5 @@ public class PointTile extends Tile{
         delay = baseDelay;
         active = false;
     }
-    public boolean containsPoint(Vector2 point){
-        if(active) {
-            this.deactivate();
-            return activePointTile.containsPoint(point);
-        }
-        else
-            return inactivePointTile.containsPoint(point);
-    }
+
 }

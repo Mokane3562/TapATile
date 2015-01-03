@@ -1,4 +1,5 @@
 package com.matatl.fightfight.tile;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -38,46 +39,34 @@ public class TileManager {
     public void render(SpriteBatch sb) {
         float numberOfPointTiles = 9f;
         int count = 1;
-
-
-        float delay = 60000/(GameScreen.bpm);
-        delay = (Math.abs(GameScreen.bpm-120) <= Math.abs(GameScreen.bpm/2 - 120)) ? delay : delay * 2;
-        if(System.currentTimeMillis() - lastTime > delay) {
-            pickedActive = false;
-            pickingActive = true;
-            lastTime = System.currentTimeMillis();
+        pickingActive = true;
+        if(Math.random() < SPEC_CHANCE) {
+            int sel = ((int) (Math.random() * 9));
+            ((PointTile) tiles.get(sel)).setSpecial(true);
+            if (Math.random() < BOMB_CHANCE) {
+                ((PointTile) tiles.get(sel)).deactivate();
+            }
+            else {
+                ((PointTile) tiles.get(sel)).activate();
+            }
         }
         for(Tile t : tiles) {
-            System.out.println(count);
-            if( t instanceof PointTile){
-                float r = MathUtils.random(0, 100);
-                r = r/100f;
-                System.out.println(r + " " + 1f/numberOfPointTiles + " " + numberOfPointTiles);
-                if (!(((PointTile)t).isSpecial())) {
-                    if (!pickedActive && r < 1f / numberOfPointTiles) {
-                        ((PointTile) t).activate();
-                        pickedActive = true;
-                    } else if (pickingActive)
-                        ((PointTile) t).deactivate();
-                    numberOfPointTiles = numberOfPointTiles - 1f;
-                }
+            if( ((PointTile) t).isActive()) {
+                pickingActive = false;
             }
-            ((PointTile)t).render(sb,System.currentTimeMillis() - lastTime);
-            count++;
         }
-        if(Math.random() < SPEC_CHANCE) {
-            int selection = (int)(Math.random()*9);
-            if(tiles.get(selection) instanceof PointTile) {
-                ((PointTile) tiles.get(selection)).setSpecial(true);
+        if(pickingActive) {
+            PointTile pt = ((PointTile)tiles.get((int)(Math.random()*9)));
+            while(pt.isSpecial()) {
+                pt = ((PointTile)tiles.get((int)(Math.random()*9)));
             }
-            if(Math.random() < BOMB_CHANCE) {
-                ((PointTile)tiles.get(selection)).deactivate();
-
-            }
-            else ((PointTile)tiles.get(selection)).activate();
-
+            pt.activate();
         }
-        pickingActive = false;
+        for(Tile t : tiles) {
+            ((PointTile)t).render(sb, Gdx.graphics.getDeltaTime());
+        }
+
+
     }
     private void addTile(Tile tile) {
         tiles.add(tile);
