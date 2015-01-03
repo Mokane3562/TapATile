@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.matatl.fightfight.camera.OrthoCamera;
+import com.matatl.fightfight.screen.GameScreen;
 
 /**
  * Created by Philip on 1/3/2015.
@@ -35,7 +36,9 @@ public class TileManager {
     public void render(SpriteBatch sb) {
         float numberOfPointTiles = 9f;
         int count = 1;
-        if(System.currentTimeMillis() - lastTime > 500) {
+        float delay = 60000/(GameScreen.bpm);
+        delay = (Math.abs(GameScreen.bpm-120) <= Math.abs(GameScreen.bpm/2 - 120)) ? delay : delay * 2;
+        if(System.currentTimeMillis() - lastTime > delay) {
             pickedActive = false;
             pickingActive = true;
             lastTime = System.currentTimeMillis();
