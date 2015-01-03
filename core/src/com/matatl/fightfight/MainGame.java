@@ -1,11 +1,11 @@
-package com.matatl.projectFightFight;
+package com.matatl.fightfight;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.matatl.projectFightFight.screen.GameScreen;
-import com.matatl.projectFightFight.screen.ScreenManager;
+import com.matatl.fightfight.screen.GameScreen;
+import com.matatl.fightfight.screen.ScreenManager;
 
 public class MainGame extends ApplicationAdapter {
 	SpriteBatch spriteBatch;

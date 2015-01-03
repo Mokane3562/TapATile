@@ -1,8 +1,8 @@
-package com.matatl.projectFightFight.screen;
+package com.matatl.fightfight.screen;
 
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.matatl.projectFightFight.camera.OrthoCamera;
+import com.matatl.fightfight.camera.OrthoCamera;
 
 public class GameScreen extends Screen {
     private OrthoCamera camera;

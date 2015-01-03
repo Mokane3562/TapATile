@@ -1,4 +1,4 @@
-package com.matatl.projectFightFight.screen;
+package com.matatl.fightfight.screen;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public abstract class Screen {

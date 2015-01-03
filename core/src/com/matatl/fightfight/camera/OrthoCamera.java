@@ -1,9 +1,9 @@
-package com.matatl.projectFightFight.camera;
+package com.matatl.fightfight.camera;
         import com.badlogic.gdx.graphics.OrthographicCamera;
         import com.badlogic.gdx.math.Matrix4;
         import com.badlogic.gdx.math.Vector2;
         import com.badlogic.gdx.math.Vector3;
-        import com.matatl.projectFightFight.MainGame;
+        import com.matatl.fightfight.MainGame;
 public class OrthoCamera extends OrthographicCamera {
     Vector3 tmp = new Vector3();
     Vector2 origin = new Vector2();

@@ -1,4 +1,4 @@
-package com.matatl.projectFightFight.screen;
+package com.matatl.fightfight.screen;
 
 public class ScreenManager {
     private static Screen currentScreen;
