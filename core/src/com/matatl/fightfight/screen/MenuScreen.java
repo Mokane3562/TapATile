@@ -14,7 +14,8 @@ import com.matatl.fightfight.camera.OrthoCamera;
  */
 public class MenuScreen extends Screen {
     private OrthoCamera camera;
-    private Rectangle playRectangle = new Rectangle(171, 462, 115, 32);
+    private Vector2 playRectPos = new Vector2(182, 462);
+    private Rectangle playRectangle = new Rectangle(playRectPos.x, playRectPos.y, 115, 32);
 
     @Override
     public void create() {
@@ -40,8 +41,8 @@ public class MenuScreen extends Screen {
     public void render(SpriteBatch spriteBatch) {
         spriteBatch.setProjectionMatrix(camera.combined);
         spriteBatch.begin();
-        spriteBatch.draw(TextureManager.MENU_SCREEN, 20, MainGame.HEIGHT / 2 - TextureManager.MENU_SCREEN.getHeight() / 2);
-        spriteBatch.draw(TextureManager.PLAY_BUTTON, 191, 462);
+        spriteBatch.draw(TextureManager.MENU_SCREEN, 0, MainGame.HEIGHT / 2 - TextureManager.MENU_SCREEN.getHeight() / 2);
+        spriteBatch.draw(TextureManager.PLAY_BUTTON, playRectPos.x, playRectPos.y);
         spriteBatch.end();
     }
 
