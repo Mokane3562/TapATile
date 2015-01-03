@@ -15,7 +15,7 @@ public class MainGame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		spriteBatch = new SpriteBatch();
-        ScreenManager.setScreen(new MenuScreen());
+        ScreenManager.setScreen(new GameScreen());
 	}
 
 	@Override

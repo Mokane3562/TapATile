@@ -8,6 +8,7 @@ import com.matatl.fightfight.tile.TileManager;
 public class GameScreen extends Screen {
     private OrthoCamera camera;
     private TileManager tileManager;
+    private boolean isLost;
     @Override
     public void create() {
         camera = new OrthoCamera();
@@ -39,5 +40,8 @@ public class GameScreen extends Screen {
     }
     @Override
     public void resume() {
+    }
+    public boolean isLost(){
+        return isLost;
     }
 }
