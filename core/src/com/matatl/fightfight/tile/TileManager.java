@@ -1,5 +1,6 @@
 package com.matatl.fightfight.tile;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.matatl.fightfight.camera.OrthoCamera;
@@ -18,7 +19,7 @@ public class TileManager {
         addTile(new PointTile(new Vector2(350,320),camera));
         addTile(new PointTile(new Vector2(10,480),camera));
         addTile(new PointTile(new Vector2(180,480),camera));
-        addTile(new PointTile(new Vector2(350,480),camera));
+        addTile(new PointTile(new Vector2(350, 480), camera));
     }
     public void update() {
         for(Tile t : tiles) {

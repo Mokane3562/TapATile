@@ -1,6 +1,7 @@
 package com.matatl.fightfight.screen;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.matatl.fightfight.TextureManager;
 import com.matatl.fightfight.camera.OrthoCamera;
 
 /**
@@ -23,7 +24,10 @@ public class MenuScreen extends Screen {
 
     @Override
     public void render(SpriteBatch spriteBatch) {
-        System.out.println("MenuScreen rendered");
+        spriteBatch.setProjectionMatrix(camera.combined);
+        spriteBatch.begin();
+        spriteBatch.draw(TextureManager.MENU_SCREEN,0,0);
+        spriteBatch.end();
     }
 
     @Override
