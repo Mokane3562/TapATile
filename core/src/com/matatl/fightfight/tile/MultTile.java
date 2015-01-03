@@ -9,7 +9,7 @@ import com.matatl.fightfight.camera.OrthoCamera;
  * Created by Philip on 1/3/2015.
  */
 public class MultTile extends Tile {
-    public MultTile(TileManager tileManager,Vector2 pos, OrthoCamera camera) {
+    public MultTile(Vector2 pos, OrthoCamera camera) {
         super(TextureManager.MULT_TILE,pos,camera);
     }
     public void update() {
