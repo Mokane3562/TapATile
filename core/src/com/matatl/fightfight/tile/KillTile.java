@@ -9,7 +9,7 @@ import com.matatl.fightfight.camera.OrthoCamera;
  * Created by Philip on 1/3/2015.
  */
 public class KillTile extends Tile{
-    public KillTile(TileManager tileManager,Vector2 pos,OrthoCamera camera) {
+    public KillTile(Vector2 pos,OrthoCamera camera) {
         super(TextureManager.KILL_TILE,pos,camera);
     }
     public void update() {

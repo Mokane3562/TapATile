@@ -9,9 +9,10 @@ import com.matatl.fightfight.camera.OrthoCamera;
  * Created by Philip on 1/3/2015.
  */
 public class PointTile extends Tile{
-    public PointTile(TileManager tileManager,Vector2 pos, OrthoCamera camera) {
-        super(TextureManager.POINT_TILE,pos, camera);
+    public PointTile(Vector2 pos, OrthoCamera camera) {
+        super(TextureManager.POINT_TILE, pos, camera);
     }
     public void update() {
+
     }
 }

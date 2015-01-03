@@ -3,6 +3,7 @@ package com.matatl.fightfight.screen;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.matatl.fightfight.camera.OrthoCamera;
+import com.matatl.fightfight.tile.TileManager;
 
 public class GameScreen extends Screen {
     private OrthoCamera camera;
@@ -10,6 +11,7 @@ public class GameScreen extends Screen {
     public void create() {
         camera = new OrthoCamera();
         camera.resize();
+        TileManager tileManager = new TileManager(camera);
     }
     @Override
     public void update() {
