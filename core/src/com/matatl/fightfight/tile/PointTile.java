@@ -17,6 +17,7 @@ public class PointTile extends Tile{
     private boolean active;
     private boolean special;
     private float delay, baseDelay;
+    private long lastChanged;
     public PointTile(Vector2 pos, OrthoCamera camera) {
         super(null, pos, camera);
         baseDelay =60000/(GameScreen.bpm);
@@ -53,18 +54,18 @@ public class PointTile extends Tile{
     }
     public void setSpecial(boolean special) {
         delay = baseDelay;
+        lastChanged = System.currentTimeMillis();
         this.special = special;
     }
 
     public void render(SpriteBatch sb,float delta){
-        delay -= delta;
-        if(delay >= 0) {
+        if(System.currentTimeMillis() - lastChanged >= baseDelay) {
             special = false;
             active = false;
-            delay = baseDelay;
+
         }
         this.update();
-        super.render(sb);
+        sb.draw(texture, pos.x, pos.y);
 
     }
 
@@ -72,10 +73,12 @@ public class PointTile extends Tile{
         return active;
     }
     public void activate(){
+        lastChanged = System.currentTimeMillis();
         delay = baseDelay;
         active = true;
     }
     public void deactivate(){
+
         delay = baseDelay;
         active = false;
     }

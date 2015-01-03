@@ -11,7 +11,7 @@ import com.matatl.fightfight.screen.GameScreen;
  * Created by Philip on 1/3/2015.
  */
 public class TileManager {
-    private Array<Tile> tiles = new Array<Tile>();
+    private Array<PointTile> tiles = new Array<PointTile>();
     private Long lastTime;
     private static final float SPEC_CHANCE = 0.005f;
     private static final float BOMB_CHANCE = 0.5f;
@@ -32,7 +32,7 @@ public class TileManager {
         pickingActive = false;
     }
     public void update() {
-        for(Tile t : tiles) {
+        for(PointTile t : tiles) {
             t.update();
         }
     }
@@ -42,16 +42,16 @@ public class TileManager {
         pickingActive = true;
         if(Math.random() < SPEC_CHANCE) {
             int sel = ((int) (Math.random() * 9));
-            ((PointTile) tiles.get(sel)).setSpecial(true);
+            (tiles.get(sel)).setSpecial(true);
             if (Math.random() < BOMB_CHANCE) {
-                ((PointTile) tiles.get(sel)).deactivate();
+                ( tiles.get(sel)).deactivate();
             }
             else {
-                ((PointTile) tiles.get(sel)).activate();
+                (tiles.get(sel)).activate();
             }
         }
-        for(Tile t : tiles) {
-            if( ((PointTile) t).isActive()) {
+        for(PointTile t : tiles) {
+            if( t.isActive() && !t.isSpecial()) {
                 pickingActive = false;
             }
         }
@@ -68,10 +68,10 @@ public class TileManager {
 
 
     }
-    private void addTile(Tile tile) {
+    private void addTile(PointTile tile) {
         tiles.add(tile);
     }
-    private Array<Tile> getTiles() {
+    private Array<PointTile> getTiles() {
         return tiles;
     }
 }
