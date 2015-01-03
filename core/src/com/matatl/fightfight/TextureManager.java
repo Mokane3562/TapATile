@@ -13,4 +13,5 @@ public class TextureManager {
     public static final Texture MENU_SCREEN = new Texture(Gdx.files.internal("menurough.png"));
     public static final Texture LOAD_SCREEN = new Texture(Gdx.files.internal("load.png"));
     public static final Texture INACTIVE_POINT_TILE = new Texture(Gdx.files.internal("inactivepointblock.png"));
+    public static final Texture PLAY_BUTTON = new Texture(Gdx.files.internal("play.png"));
 }

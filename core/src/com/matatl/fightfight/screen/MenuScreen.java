@@ -2,8 +2,10 @@ package com.matatl.fightfight.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.matatl.fightfight.MainGame;
 import com.matatl.fightfight.TextureManager;
 import com.matatl.fightfight.camera.OrthoCamera;
 
@@ -26,8 +28,7 @@ public class MenuScreen extends Screen {
         camera.update();
 
         if (Gdx.input.isTouched()){
-            //Vector2 touch = camera.unprojectCoordinates(Gdx.input.getX(), Gdx.input.getY());
-            Vector2 touch = new Vector2(Gdx.input.getX(), Gdx.input.getY());
+            Vector2 touch = camera.unprojectCoordinates(Gdx.input.getX(), Gdx.input.getY());
             if (playRectangle.contains(touch)){
                 ScreenManager.setScreen(new GameScreen());
             }
@@ -39,15 +40,14 @@ public class MenuScreen extends Screen {
     public void render(SpriteBatch spriteBatch) {
         spriteBatch.setProjectionMatrix(camera.combined);
         spriteBatch.begin();
-        spriteBatch.draw(TextureManager.MENU_SCREEN,0,0);
+        spriteBatch.draw(TextureManager.MENU_SCREEN, 20, MainGame.HEIGHT / 2 - TextureManager.MENU_SCREEN.getHeight() / 2);
+        spriteBatch.draw(TextureManager.PLAY_BUTTON, 191, 462);
         spriteBatch.end();
-        System.out.println("MenuScreen rendered");
     }
 
     @Override
     public void resize(int width, int height) {
         camera.resize();
-        System.out.println("MenuScreen resized");
     }
 
     @Override
