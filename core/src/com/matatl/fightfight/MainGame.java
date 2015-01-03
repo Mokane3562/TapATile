@@ -5,8 +5,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.matatl.fightfight.screen.GameScreen;
+import com.matatl.fightfight.screen.LoadScreen;
 import com.matatl.fightfight.screen.MenuScreen;
 import com.matatl.fightfight.screen.ScreenManager;
+import com.matatl.fightfight.screen.TransitionScreen;
+import com.matatl.fightfight.transition.TimedTransition;
 
 public class MainGame extends ApplicationAdapter {
 	SpriteBatch spriteBatch;
@@ -15,7 +18,8 @@ public class MainGame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		spriteBatch = new SpriteBatch();
-        ScreenManager.setScreen(new GameScreen());
+        TransitionScreen initialScreen = new TransitionScreen(new LoadScreen(), new MenuScreen(), new TimedTransition(1));
+        ScreenManager.setScreen(initialScreen);
 	}
 
 	@Override

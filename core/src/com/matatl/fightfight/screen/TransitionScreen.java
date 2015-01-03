@@ -18,6 +18,7 @@ public class TransitionScreen extends Screen {
 
     public void create() {
         current.create();
+        current.update();
     }
     public void update() {
         current.update();
