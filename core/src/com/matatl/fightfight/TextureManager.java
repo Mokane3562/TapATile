@@ -11,5 +11,6 @@ public class TextureManager {
     public static final Texture MULT_TILE = new Texture(Gdx.files.internal("multblock.png"));
     public static final Texture KILL_TILE = new Texture(Gdx.files.internal("killblock.png"));
     public static final Texture MENU_SCREEN = new Texture(Gdx.files.internal("menurough.png"));
+    public static final Texture LOAD_SCREEN = new Texture(Gdx.files.internal("load.png"));
     public static final Texture INACTIVE_POINT_TILE = new Texture(Gdx.files.internal("inactivepointblock.png"));
 }
