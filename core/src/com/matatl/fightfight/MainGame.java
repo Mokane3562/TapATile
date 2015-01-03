@@ -14,6 +14,7 @@ import com.matatl.fightfight.transition.TimedTransition;
 public class MainGame extends ApplicationAdapter {
 	SpriteBatch spriteBatch;
 
+    public boolean debug = true;
 	public static final int WIDTH = 480, HEIGHT = 800;
 	@Override
 	public void create () {
