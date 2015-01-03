@@ -37,4 +37,12 @@ public class PointTile extends Tile{
     public void deactivate(){
         active = false;
     }
+    public boolean containsPoint(Vector2 point){
+        if(active) {
+            this.deactivate();
+            return activePointTile.containsPoint(point);
+        }
+        else
+            return inactivePointTile.containsPoint(point);
+    }
 }
