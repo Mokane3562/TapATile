@@ -17,6 +17,7 @@ public class MenuScreen extends Screen {
 
     @Override
     public void update() {
+        camera.update();
         System.out.println("MenuScreen updated");
     }
 
