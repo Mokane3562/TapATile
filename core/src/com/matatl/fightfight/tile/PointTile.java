@@ -33,9 +33,12 @@ public class PointTile extends Tile{
         Tile tile;
         if(active && !special){
             tile = new ActivePointTile(pos, camera);
+            this.deactivate();
         }
         else if(active && special){
             tile = new MultTile(pos, camera);
+            this.deactivate();
+            this.setSpecial(false);
         }
         else if(!active && special){
             tile = new KillTile(pos, camera);
