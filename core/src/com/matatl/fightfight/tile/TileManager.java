@@ -7,6 +7,8 @@ import com.badlogic.gdx.utils.Array;
 import com.matatl.fightfight.camera.OrthoCamera;
 import com.matatl.fightfight.screen.GameScreen;
 
+import java.awt.Point;
+
 /**
  * Created by Philip on 1/3/2015.
  */
@@ -40,8 +42,6 @@ public class TileManager {
         }
     }
     public void render(SpriteBatch sb) {
-        float numberOfPointTiles = 9f;
-        int count = 1;
         pickingActive = true;
         if(Math.random() < SPEC_CHANCE) {
             int sel = ((int) (Math.random() * 9));
@@ -60,15 +60,15 @@ public class TileManager {
             }
         }
         if(pickingActive) {
-            PointTile pt = ((PointTile)tiles.get((int)(Math.random()*9)));
+            PointTile pt = (tiles.get((int)(Math.random()*9)));
             while(pt.isSpecial()) {
-                pt = ((PointTile)tiles.get((int)(Math.random()*9)));
+                pt = (tiles.get((int)(Math.random()*9)));
             }
             lastTime = System.currentTimeMillis();
             pt.activate();
         }
-        for(Tile t : tiles) {
-            ((PointTile)t).render(sb);
+        for(PointTile t : tiles) {
+            (t).render(sb);
         }
 
 

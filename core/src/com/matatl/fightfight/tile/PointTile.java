@@ -17,6 +17,7 @@ public class PointTile extends Tile{
     private boolean active;
     private boolean special;
     private float delay, baseDelay;
+
     private long lastChanged;
     public PointTile(Vector2 pos, OrthoCamera camera) {
         super(null, pos, camera);
@@ -79,7 +80,7 @@ public class PointTile extends Tile{
         this.special = special;
     }
 
-    public void render(SpriteBatch sb,float delta){
+    public void render(SpriteBatch sb){
         if(System.currentTimeMillis() - lastChanged >= baseDelay) {
             special = false;
             active = false;
