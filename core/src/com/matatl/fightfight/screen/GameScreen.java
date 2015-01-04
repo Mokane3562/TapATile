@@ -61,6 +61,7 @@ public class GameScreen extends Screen {
         font.setColor(1, 1, 1, 1);
         font.setScale(3, 3);
         font.draw(spriteBatch, "Score: " + scoreManager.getScore(), 40, 700);
+        font.draw(spriteBatch, "" + scoreManager.getMultiplier() + "X", 350, 700);
         font.draw(spriteBatch, "High Score: " + scoreManager.getHiScore(), 40, 100);
         scoreManager.setHiScore(prefs.getInteger(HI_SCORE_KEY));
         if( scoreManager.getScore() > scoreManager.getHiScore() ) {

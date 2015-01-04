@@ -16,6 +16,11 @@ public class ScoreManager {
     private static int multiplier;
     OrthoCamera camera;
     private final static String HI_SCORE_KEY = "ff_hiScore";
+
+    public static int getMultiplier() {
+        return multiplier;
+    }
+
     public ScoreManager(OrthoCamera camera, Preferences prefs) {
         this.camera = camera;
         this.hiScore = prefs.getInteger(HI_SCORE_KEY);
