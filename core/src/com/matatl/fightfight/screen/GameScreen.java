@@ -4,8 +4,10 @@ import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.matatl.fightfight.AudioManager;
 import com.matatl.fightfight.MainGame;
 import com.matatl.fightfight.ScoreManager;
 import com.matatl.fightfight.TextureManager;
@@ -24,12 +26,14 @@ public class GameScreen extends Screen {
     private final static String HI_SCORE_KEY = "ff_hiScore";
     @Override
     public void create() {
-        bpm = 184;
         camera = new OrthoCamera();
         camera.resize();
         tileManager = new TileManager(camera);
         scoreManager = new ScoreManager(camera, prefs);
-        backtrack = Gdx.audio.newMusic(Gdx.files.internal("9 - Future Sick.mp3"));
+        AudioManager.initSongs();
+        int r = MathUtils.random(AudioManager.songList().size-1);
+        bpm = AudioManager.songList().get(r).getBPM();
+        backtrack = AudioManager.songList().get(r).getMusic();
         lastClick = System.currentTimeMillis();
         backtrack.play();
     }
