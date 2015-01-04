@@ -41,8 +41,8 @@ public class MenuScreen extends Screen {
     public void render(SpriteBatch spriteBatch) {
         spriteBatch.setProjectionMatrix(camera.combined);
         spriteBatch.begin();
-        spriteBatch.draw(TextureManager.MENU_SCREEN, 0, MainGame.HEIGHT / 2 - TextureManager.MENU_SCREEN.getHeight() / 2);
-        spriteBatch.draw(TextureManager.PLAY_BUTTON, playRectPos.x, playRectPos.y);
+        spriteBatch.draw(TextureManager.MENU_SCREEN, 20, MainGame.HEIGHT / 2 - TextureManager.MENU_SCREEN.getHeight() / 2);
+        spriteBatch.draw(TextureManager.PLAY_BUTTON, playRectPos.x+20, playRectPos.y);
         spriteBatch.end();
     }
 
