@@ -2,7 +2,9 @@ package com.matatl.fightfight;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.matatl.fightfight.camera.OrthoCamera;
 
 /**
@@ -12,10 +14,9 @@ public class ScoreManager {
     private int hiScore;
     private static int score;
     private static int multiplier;
-    private Preferences prefs = Gdx.app.getPreferences("FFPreferences");
-    private final static String HI_SCORE_KEY = "ff_hiScore";
     OrthoCamera camera;
-    public ScoreManager(OrthoCamera camera) {
+    private final static String HI_SCORE_KEY = "ff_hiScore";
+    public ScoreManager(OrthoCamera camera, Preferences prefs) {
         this.camera = camera;
         this.hiScore = prefs.getInteger(HI_SCORE_KEY);
         init();
@@ -24,12 +25,8 @@ public class ScoreManager {
         score = 0;
         multiplier = 1;
     }
-    public void render(SpriteBatch sb, int score) {
-        hiScore = prefs.getInteger(HI_SCORE_KEY);
-        if( score > hiScore ) {
-            prefs.putInteger(HI_SCORE_KEY, score);
-            prefs.flush();
-        }
+    public void render(SpriteBatch sb) {
+
     }
     public static void incrementScore(){
         score = score + multiplier;
@@ -49,5 +46,16 @@ public class ScoreManager {
         if(multiplier > 1)
             return true;
         return false;
+    }
+    public int getScore(){
+        return score;
+    }
+
+    public int getHiScore() {
+        return hiScore;
+    }
+
+    public void setHiScore(int hiScore) {
+        this.hiScore = hiScore;
     }
 }
