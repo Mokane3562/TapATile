@@ -73,12 +73,14 @@ public class PointTile extends Tile{
             }
         }
     }
-
+    public boolean lifeOver() {
+        return (System.currentTimeMillis() - lastChanged >= delay);
+    }
     public boolean isSpecial() {
         return special;
     }
     public void setSpecial(boolean special) {
-        delay = baseDelay;
+        delay = 1000;
         lastChanged = System.currentTimeMillis();
         this.special = special;
     }
@@ -104,7 +106,7 @@ public class PointTile extends Tile{
     }
     public void activate(){
         lastChanged = System.currentTimeMillis();
-        delay = baseDelay;
+        delay = 1200;
         active = true;
     }
     public void deactivate(){

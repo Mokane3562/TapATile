@@ -53,9 +53,9 @@ public class TileManager {
                 (tiles.get(sel)).activate();
             }
         }
-        pickingActive = (System.currentTimeMillis() - lastTime >= baseDelay);
+        pickingActive = System.currentTimeMillis() - lastTime >= baseDelay;
         for(PointTile t : tiles) {
-            if( t.isActive() && !t.isSpecial()) {
+            if( (t.isActive() && !t.isSpecial()) || (!(t.isActive()) && !(t.isSpecial()) && !(t.lifeOver()))) {
                 pickingActive = false;
             }
         }
