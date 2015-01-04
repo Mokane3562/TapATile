@@ -10,6 +10,8 @@ import com.badlogic.gdx.utils.Array;
  */
 public class AudioManager {
     public static final Sound KILL_TILE_FX = Gdx.audio.newSound(Gdx.files.internal("bomb.wav"));
+    public static final Sound MULT_TILE_FX = Gdx.audio.newSound(Gdx.files.internal("mult.wav"));
+    public static final Sound POINT_TILE_FX = Gdx.audio.newSound(Gdx.files.internal("beat.wav"));
     private static Array<Song> songList;
     public static int songs;
 
