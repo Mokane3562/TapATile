@@ -17,6 +17,8 @@ public class TileManager {
     private static final float BOMB_CHANCE = 0.5f;
     private boolean pickedActive;
     private boolean pickingActive;
+    private float baseDelay =60000/(GameScreen.bpm);
+
     public TileManager(OrthoCamera camera) {
         addTile(new PointTile(new Vector2(10,160),camera));
         addTile(new PointTile(new Vector2(180,160),camera));
@@ -30,6 +32,7 @@ public class TileManager {
         lastTime = System.currentTimeMillis();
         pickedActive = true;
         pickingActive = false;
+        baseDelay = (Math.abs(GameScreen.bpm-120) <= Math.abs(GameScreen.bpm/2 - 120)) ? baseDelay : baseDelay * 2;
     }
     public void update() {
         for(PointTile t : tiles) {
@@ -50,6 +53,7 @@ public class TileManager {
                 (tiles.get(sel)).activate();
             }
         }
+        pickingActive = (System.currentTimeMillis() - lastTime >= baseDelay);
         for(PointTile t : tiles) {
             if( t.isActive() && !t.isSpecial()) {
                 pickingActive = false;
@@ -60,10 +64,11 @@ public class TileManager {
             while(pt.isSpecial()) {
                 pt = ((PointTile)tiles.get((int)(Math.random()*9)));
             }
+            lastTime = System.currentTimeMillis();
             pt.activate();
         }
         for(Tile t : tiles) {
-            ((PointTile)t).render(sb, Gdx.graphics.getDeltaTime());
+            ((PointTile)t).render(sb);
         }
 
 
