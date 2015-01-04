@@ -6,7 +6,9 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.matatl.fightfight.MainGame;
 import com.matatl.fightfight.ScoreManager;
+import com.matatl.fightfight.TextureManager;
 import com.matatl.fightfight.camera.OrthoCamera;
 import com.matatl.fightfight.tile.Tile;
 import com.matatl.fightfight.tile.TileManager;
@@ -49,6 +51,7 @@ public class GameScreen extends Screen {
     public void render(SpriteBatch spriteBatch) {
         spriteBatch.setProjectionMatrix(camera.combined);
         spriteBatch.begin();
+        spriteBatch.draw(TextureManager.GAME_BACKGROUND, 0, MainGame.HEIGHT / 2 - TextureManager.GAME_BACKGROUND.getHeight() / 2);
         tileManager.render(spriteBatch);
         scoreManager.render(spriteBatch,score);
         spriteBatch.end();
