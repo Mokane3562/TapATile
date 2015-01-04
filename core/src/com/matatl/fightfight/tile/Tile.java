@@ -31,4 +31,5 @@ public abstract class Tile {
     public boolean containsPoint(Vector2 point){
         return getBounds().contains(point.x, point.y);
     }
+    public abstract void handleTouch(Vector2 touch);
 }

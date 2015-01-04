@@ -29,6 +29,24 @@ public class PointTile extends Tile{
     }
 
     @Override
+    public void handleTouch(Vector2 touch) {
+        Tile tile;
+        if(active && !special){
+            tile = new ActivePointTile(pos, camera);
+        }
+        else if(active && special){
+            tile = new MultTile(pos, camera);
+        }
+        else if(!active && special){
+            tile = new KillTile(pos, camera);
+        }
+        else{
+            tile = new InactivePointTile(pos, camera);
+        }
+        tile.handleTouch(touch);
+    }
+
+    @Override
     public void update() {
         if(special) {
             if(active) {

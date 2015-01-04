@@ -74,4 +74,9 @@ public class TileManager {
     private Array<PointTile> getTiles() {
         return tiles;
     }
+    public void handleTouch(Vector2 touch){
+        for(Tile t : tiles){
+            t.handleTouch(touch);
+        }
+    }
 }

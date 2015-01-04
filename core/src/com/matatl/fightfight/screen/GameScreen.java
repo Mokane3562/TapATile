@@ -4,8 +4,11 @@ package com.matatl.fightfight.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 import com.matatl.fightfight.ScoreManager;
 import com.matatl.fightfight.camera.OrthoCamera;
+import com.matatl.fightfight.tile.Tile;
 import com.matatl.fightfight.tile.TileManager;
 
 public class GameScreen extends Screen {
@@ -16,6 +19,7 @@ public class GameScreen extends Screen {
     private ScoreManager scoreManager;
     private int score;
     private boolean isLost;
+    private long lastClick;
     @Override
     public void create() {
         bpm = 184;
@@ -25,13 +29,20 @@ public class GameScreen extends Screen {
         tileManager = new TileManager(camera);
         scoreManager = new ScoreManager(camera);
         backtrack = Gdx.audio.newMusic(Gdx.files.internal("9 - Future Sick.mp3"));
-
+        lastClick = System.currentTimeMillis();
         backtrack.play();
     }
     @Override
     public void update() {
         camera.update();
         tileManager.update();
+        if(Gdx.input.isTouched()){
+            if(System.currentTimeMillis()-lastClick >= 200) {
+                lastClick = System.currentTimeMillis();
+                Vector2 touch = camera.unprojectCoordinates(Gdx.input.getX(), Gdx.input.getY());
+                tileManager.handleTouch(touch);
+            }
+        }
         camera.resize();
     }
     @Override
