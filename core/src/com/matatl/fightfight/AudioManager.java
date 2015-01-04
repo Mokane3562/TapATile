@@ -10,9 +10,10 @@ import com.badlogic.gdx.utils.Array;
  */
 public class AudioManager {
     public static final Sound KILL_TILE_FX = Gdx.audio.newSound(Gdx.files.internal("bomb.wav"));
-    public static Array<Song> songs;
+    private static Array<Song> songList;
+    public static int songs;
 
-     class Song {
+     public static class Song {
          private Music title;
          private int bpm;
 
@@ -20,14 +21,24 @@ public class AudioManager {
              this.title = Gdx.audio.newMusic(Gdx.files.internal(title));
              this.bpm = bpm;
          }
+         public Music getMusic() {
+             return title;
+         }
+         public int getBPM() {
+             return bpm;
+         }
      }
-    public AudioManager() {
-        songs = new Array<Song>();
-        songs.add(new Song("Hypnothis.mp3",104));
-        songs.add(new Song("Itty Bitty 8 Bit.mp3",108));
-        songs.add(new Song("Latin Industries.mp3",122));
-        songs.add(new Song("Ouroboros.mp3",130));
-        songs.add(new Song("One Sly Move.mp3",95));
+    public static void initSongs() {
+        songList= new Array<Song>();
+        songList.add(new Song("Hypnothis.mp3",104));
+        songList.add(new Song("Itty Bitty 8 Bit.mp3",108));
+        songList.add(new Song("Latin Industries.mp3",122));
+        songList.add(new Song("Ouroboros.mp3",130));
+        songList.add(new Song("One Sly Move.mp3",95));
+        songs = songList.size;
+    }
+    public static Array<Song> songList() {
+        return songList;
     }
 
 }

@@ -6,6 +6,7 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.matatl.fightfight.AudioManager;
 import com.matatl.fightfight.ScoreManager;
 import com.matatl.fightfight.camera.OrthoCamera;
 import com.matatl.fightfight.tile.Tile;
@@ -22,13 +23,15 @@ public class GameScreen extends Screen {
     private long lastClick;
     @Override
     public void create() {
-        bpm = 184;
         camera = new OrthoCamera();
         camera.resize();
         score = 0;
         tileManager = new TileManager(camera);
         scoreManager = new ScoreManager(camera);
-        backtrack = Gdx.audio.newMusic(Gdx.files.internal("9 - Future Sick.mp3"));
+        AudioManager.initSongs();
+        int r = (int)(Math.random()*(AudioManager.songs));
+        backtrack = AudioManager.songList().get(r).getMusic();
+        bpm = AudioManager.songList().get(r).getBPM();
         lastClick = System.currentTimeMillis();
         backtrack.play();
     }
