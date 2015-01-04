@@ -18,6 +18,7 @@ public class GameScreen extends Screen {
     private OrthoCamera camera;
     public static Music backtrack;
     public static int bpm=184;
+    public float frameCounter = 0;
     private TileManager tileManager;
     private ScoreManager scoreManager;
     private boolean isLost;
@@ -54,7 +55,9 @@ public class GameScreen extends Screen {
     public void render(SpriteBatch spriteBatch) {
         spriteBatch.setProjectionMatrix(camera.combined);
         spriteBatch.begin();
-        spriteBatch.draw(TextureManager.GAME_BACKGROUND, 0, MainGame.HEIGHT / 2 - TextureManager.GAME_BACKGROUND.getHeight() / 2);
+        frameCounter += Gdx.graphics.getDeltaTime();
+        spriteBatch.draw(TextureManager.GAME_BACKGROUND.getKeyFrame(frameCounter, true),0, MainGame.HEIGHT / 2 - TextureManager.GAME_BACKGROUND_MAGIC.getHeight() / 2);
+        //spriteBatch.draw(TextureManager.GAME_BACKGROUND, 0, MainGame.HEIGHT / 2 - TextureManager.GAME_BACKGROUND.getHeight() / 2);
         tileManager.render(spriteBatch);
         scoreManager.render(spriteBatch);
         BitmapFont font = new BitmapFont();
