@@ -20,7 +20,7 @@ public class ActivePointTile extends Tile{
     @Override
     public void handleTouch(Vector2 touch) {
         if (this.containsPoint(touch)){
-            AudioManager.POINT_TILE_FX.play(5);
+            AudioManager.POINT_TILE_FX.play();
             ScoreManager.incrementScore();
         }
     }

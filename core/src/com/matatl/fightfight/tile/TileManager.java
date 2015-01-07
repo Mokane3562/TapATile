@@ -18,6 +18,7 @@ public class TileManager {
     private static final float SPEC_CHANCE = 0.005f;
     private static final float BOMB_CHANCE = 0.5f;
     private boolean pickedActive;
+    private static final int NUMBER_OF_TILES = 9;
     private boolean pickingActive;
     private float baseDelay =60000/(GameScreen.bpm);
 
@@ -44,7 +45,7 @@ public class TileManager {
     public void render(SpriteBatch sb) {
         pickingActive = true;
         if(Math.random() < SPEC_CHANCE) {
-            int sel = ((int) (Math.random() * 9));
+            int sel = ((int) (Math.random() * NUMBER_OF_TILES));
             (tiles.get(sel)).setSpecial(true);
             if (Math.random() < BOMB_CHANCE) {
                 ( tiles.get(sel)).deactivate();
@@ -60,9 +61,9 @@ public class TileManager {
             }
         }
         if(pickingActive) {
-            PointTile pt = (tiles.get((int)(Math.random()*9)));
+            PointTile pt = (tiles.get((int)(Math.random()*NUMBER_OF_TILES)));
             while(pt.isSpecial()) {
-                pt = (tiles.get((int)(Math.random()*9)));
+                pt = (tiles.get((int)(Math.random()*NUMBER_OF_TILES)));
             }
             lastTime = System.currentTimeMillis();
             pt.activate();
