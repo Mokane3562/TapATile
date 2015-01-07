@@ -6,17 +6,16 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
 import com.matatl.fightfight.AudioManager;
 import com.matatl.fightfight.MainGame;
 import com.matatl.fightfight.ScoreManager;
 import com.matatl.fightfight.TextureManager;
 import com.matatl.fightfight.camera.OrthoCamera;
-import com.matatl.fightfight.tile.Tile;
 import com.matatl.fightfight.tile.TileManager;
 public class GameScreen extends Screen {
     private OrthoCamera camera;
     public static Music backtrack;
+    private static int milSecBetweenTouch = 100;
     public static int bpm=184;
     public float frameCounter = 0;
     private TileManager tileManager;
@@ -43,7 +42,7 @@ public class GameScreen extends Screen {
         camera.update();
         tileManager.update();
         if(Gdx.input.isTouched()){
-            if(System.currentTimeMillis()-lastClick >= 200) {
+            if(System.currentTimeMillis()-lastClick >= milSecBetweenTouch) {
                 lastClick = System.currentTimeMillis();
                 Vector2 touch = camera.unprojectCoordinates(Gdx.input.getX(), Gdx.input.getY());
                 tileManager.handleTouch(touch);
