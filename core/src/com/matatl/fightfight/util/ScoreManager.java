@@ -1,11 +1,7 @@
-package com.matatl.fightfight;
+package com.matatl.fightfight.util;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.matatl.fightfight.camera.OrthoCamera;
 
 /**
  * Created by Philip on 1/3/2015.

@@ -1,6 +1,7 @@
-package com.matatl.fightfight.screen;
+package com.matatl.fightfight.util;
 
 import com.matatl.fightfight.MainGame;
+import com.matatl.fightfight.screen.Screen;
 
 public class ScreenManager {
     private static Screen currentScreen;

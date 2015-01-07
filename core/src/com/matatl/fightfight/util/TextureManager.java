@@ -1,4 +1,4 @@
-package com.matatl.fightfight;
+package com.matatl.fightfight.util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;

@@ -1,11 +1,9 @@
 package com.matatl.fightfight.screen;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.Array;
-import com.matatl.fightfight.MainGame;
-import com.matatl.fightfight.transition.Transition;
+import com.matatl.fightfight.util.ScreenManager;
+import com.matatl.fightfight.util.Transition;
 
 /**
  * Created by Philip on 1/3/2015.

@@ -4,12 +4,11 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.matatl.fightfight.screen.GameScreen;
 import com.matatl.fightfight.screen.LoadScreen;
 import com.matatl.fightfight.screen.MenuScreen;
-import com.matatl.fightfight.screen.ScreenManager;
+import com.matatl.fightfight.util.ScreenManager;
 import com.matatl.fightfight.screen.TransitionScreen;
-import com.matatl.fightfight.transition.TimedTransition;
+import com.matatl.fightfight.util.TimedTransition;
 
 public class MainGame extends ApplicationAdapter {
 	SpriteBatch spriteBatch;

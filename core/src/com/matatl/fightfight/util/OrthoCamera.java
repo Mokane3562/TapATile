@@ -1,4 +1,4 @@
-package com.matatl.fightfight.camera;
+package com.matatl.fightfight.util;
         import com.badlogic.gdx.graphics.OrthographicCamera;
         import com.badlogic.gdx.math.Matrix4;
         import com.badlogic.gdx.math.Vector2;

@@ -1,8 +1,8 @@
 package com.matatl.fightfight.screen;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.matatl.fightfight.TextureManager;
-import com.matatl.fightfight.camera.OrthoCamera;
+import com.matatl.fightfight.util.TextureManager;
+import com.matatl.fightfight.util.OrthoCamera;
 
 /**
  * Created by Philip on 1/3/2015.

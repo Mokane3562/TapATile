@@ -1,17 +1,13 @@
 package com.matatl.fightfight.tile;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-import com.matatl.fightfight.ScoreManager;
-import com.matatl.fightfight.TextureManager;
-import com.matatl.fightfight.camera.OrthoCamera;
+import com.matatl.fightfight.util.ScoreManager;
+import com.matatl.fightfight.util.TextureManager;
+import com.matatl.fightfight.util.OrthoCamera;
 import com.matatl.fightfight.screen.GameScreen;
 import com.matatl.fightfight.screen.MenuScreen;
-import com.matatl.fightfight.screen.ScreenManager;
-
-import javax.xml.soap.Text;
+import com.matatl.fightfight.util.ScreenManager;
 
 /**
  * Created by scott on 2015-01-03.

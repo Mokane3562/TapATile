@@ -2,12 +2,12 @@ package com.matatl.fightfight.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.matatl.fightfight.MainGame;
-import com.matatl.fightfight.TextureManager;
-import com.matatl.fightfight.camera.OrthoCamera;
+import com.matatl.fightfight.util.ScreenManager;
+import com.matatl.fightfight.util.TextureManager;
+import com.matatl.fightfight.util.OrthoCamera;
 
 /**
  * Created by Mokane on 1/3/2015.

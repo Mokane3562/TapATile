@@ -1,4 +1,4 @@
-package com.matatl.fightfight.transition;
+package com.matatl.fightfight.util;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.matatl.fightfight.screen.Screen;

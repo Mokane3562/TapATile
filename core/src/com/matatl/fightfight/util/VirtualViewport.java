@@ -1,4 +1,4 @@
-package com.matatl.fightfight.camera;
+package com.matatl.fightfight.util;
 import com.badlogic.gdx.Gdx;
 public class VirtualViewport {
     float virtualWidth;

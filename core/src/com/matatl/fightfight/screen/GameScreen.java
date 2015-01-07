@@ -6,12 +6,12 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.matatl.fightfight.AudioManager;
+import com.matatl.fightfight.util.AudioManager;
 import com.matatl.fightfight.MainGame;
-import com.matatl.fightfight.ScoreManager;
-import com.matatl.fightfight.TextureManager;
-import com.matatl.fightfight.camera.OrthoCamera;
-import com.matatl.fightfight.tile.TileManager;
+import com.matatl.fightfight.util.ScoreManager;
+import com.matatl.fightfight.util.TextureManager;
+import com.matatl.fightfight.util.OrthoCamera;
+import com.matatl.fightfight.util.TileManager;
 public class GameScreen extends Screen {
     private OrthoCamera camera;
     public static Music backtrack;
@@ -31,7 +31,7 @@ public class GameScreen extends Screen {
         tileManager = new TileManager(camera);
         scoreManager = new ScoreManager(camera, prefs);
         AudioManager.initSongs();
-        int r = MathUtils.random(AudioManager.songList().size-1);
+        int r = MathUtils.random(AudioManager.songList().size - 1);
         bpm = AudioManager.songList().get(r).getBPM();
         backtrack = AudioManager.songList().get(r).getMusic();
         lastClick = System.currentTimeMillis();
